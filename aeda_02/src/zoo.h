@@ -16,9 +16,9 @@ class Veterinario {
 	long codOrdem;
 	//...
 public:
-	Veterinario(string nome, int cod);
+	Veterinario(string nome, long cod);
 	string getNome() const;
-
+    string getInformacao() const;
 };
 
 class Animal {
@@ -29,10 +29,14 @@ protected:
 	static int maisJovem;
 public:
 	Animal(string nome, int idade);
-	virtual ~Animal(){};
+	virtual ~Animal()= default;
 	string getNome() const;
 	virtual bool eJovem() const = 0;
 	static int getMaisJovem();
+    virtual string getInformacao() const;
+    void setVet(Veterinario *vet);
+    const Veterinario* getVet() const;
+    int getIdade() const;
 
 };
 
@@ -42,7 +46,8 @@ class Cao: public Animal {
 	string raca;
 public:
 	Cao(string nome, int idade, string raca);
-
+    bool eJovem() const;
+    virtual string getInformacao() const;
 };
 
 
@@ -52,8 +57,8 @@ class Voador {
 	int altura_max;
 public:
 	Voador(int vmax, int amax);
-	virtual ~Voador(){};
-
+	virtual ~Voador() = default;
+    virtual string getInformacao() const;
 };
 
 
@@ -61,6 +66,8 @@ public:
 class Morcego: public Animal, public Voador {
 public:
 	Morcego(string nome, int idade, int vmax, int amax);
+    bool eJovem() const;
+    virtual string getInformacao() const;
 
 };
 
@@ -71,12 +78,13 @@ class Zoo {
 public:
 	int numAnimais() const;
 	int numVeterinarios() const;
-	//void adicionaAnimal(Animal *a1);
-	//string getInformacao() const;
-	//bool animalJovem(string nomeA);
-	//void alocaVeterinarios(istream &isV);
-	//bool removeVeterinario(string nomeV);
-	//bool operator < (Zoo& zoo2) const;
+	void adicionaAnimal(Animal *a1);
+	string getInformacao() const;
+	bool animalJovem(string nomeA);
+	void alocaVeterinarios(istream &isV);
+	bool removeVeterinario(string nomeV);
+	bool operator < (Zoo& zoo2) const;
+    int getSumZoo() const;
 };
 
 
