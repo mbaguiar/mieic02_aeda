@@ -85,16 +85,11 @@ vector<Impressora *> Escritorio::getImpressoras() const
 int Escritorio::numImpressorasSemResponsavel() const {
 
 	int counter = 0;
-	 for (size_t i = 0; i < impressoras.size(); i++) {
-		 for (size_t j = 0; j < funcionarios.size(); j++) {
-			 for (size_t k = 0; k < funcionarios.at(j).getImpressoras().size(); k++) {
-				 if (impressoras.at(i)->getCodigo() == funcionarios.at(j).getImpressoras().at(k)->getCodigo())
-					 counter ++;
-			 }
-		 }
+	 for (size_t i = 0; i < funcionarios.size(); i++) {
+		 counter = counter + funcionarios.at(i).getImpressoras().size();
 	 }
 
-	 return (impressoras.size() - counter);
+	 return impressoras.size() - counter;
 }
 
 vector<Impressora *> Escritorio::retiraImpressoras(int ano1) {
