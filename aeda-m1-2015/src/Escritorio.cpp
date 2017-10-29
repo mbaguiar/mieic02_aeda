@@ -109,10 +109,6 @@ vector<Impressora *> Escritorio::retiraImpressoras(int ano1) {
 
 }
 
-bool Impressora::imprime(Documento doc1) {
-	return false;
-}
-
 bool ImpressoraPB::imprime(Documento doc1) {
 
 	int npags = doc1.getNumPaginas();
@@ -146,12 +142,8 @@ Impressora * Escritorio::imprimeDoc(Documento doc1) const {
 		}
 	}
 
-	Impressora *imp = new Impressora("inexistente", 0);
+	Impressora *imp = new ImpressoraPB("inexistente", 0, 0);
 	return imp;
-}
-
-bool Impressora::tonerBaixo() const {
-	return false;
 }
 
 bool ImpressoraPB::tonerBaixo() const {

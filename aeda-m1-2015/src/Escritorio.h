@@ -36,8 +36,8 @@ public:
 	string getCodigo() const;
 	int getAno() const;
 	vector<Documento> getDocumentosImpressos() const;
-	virtual bool imprime(Documento doc1);
-	virtual bool tonerBaixo() const;
+	virtual bool imprime(Documento doc1) = 0;
+	virtual bool tonerBaixo() const = 0;
 };
 
 class ImpressoraPB: public Impressora {
