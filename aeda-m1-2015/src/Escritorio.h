@@ -45,8 +45,8 @@ class ImpressoraPB: public Impressora {
 public:
    ImpressoraPB(string cod, int a, int toner);
    int getNumPaginasImprimir() const;
-   virtual bool imprime(Documento doc1);
-   virtual bool tonerBaixo() const;
+   bool imprime(Documento doc1);
+   bool tonerBaixo() const;
 };
 
 class ImpressoraCores: public Impressora {
@@ -55,8 +55,8 @@ class ImpressoraCores: public Impressora {
 public:
    ImpressoraCores(string cod, int a, int toner);
    int getNumPaginasImprimir() const;
-   virtual bool imprime(Documento doc1);
-   virtual bool tonerBaixo() const;
+   bool imprime(Documento doc1);
+   bool tonerBaixo() const;
 };
 
 class Funcionario {
