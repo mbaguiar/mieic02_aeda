@@ -79,7 +79,7 @@ void test_c_FimMes() {
 
 
 void test_d_RemoveCliente() {
-	/*Agencia a1("Areosa");
+	Agencia a1("Areosa");
 	Cliente *c1 = new Cliente("Rui Joao");
 	Cliente *c2 = new Cliente("Maria Matos");
 	Cliente *c3 = new Cliente("Filipa Costa");
@@ -109,7 +109,7 @@ void test_d_RemoveCliente() {
 	vector<Cliente *> clis=a1.getClientes();
 	ASSERT_EQUAL("Maria Matos", clis[0]->getNome());
 	vector<Conta *> contas1=clis[0]->getContas();
-	ASSERT_EQUAL(777,contas1[0]->getNumConta());*/
+	ASSERT_EQUAL(777,contas1[0]->getNumConta());
 }
 
 

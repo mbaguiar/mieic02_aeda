@@ -146,6 +146,40 @@ float Agencia::fimMes() const {
 	return soma;
 }
 
+vector<Conta*> Agencia::removeCliente(string nomeCli) {
+
+	int index;
+	vector<Conta*> contas;
+
+	for (size_t i = 0; i < clientes.size(); i++) {
+
+		if (clientes.at(i)->getNome() == nomeCli) {
+
+			index = i;
+
+			for (size_t j = 0; j < clientes.at(i)->getContas().size(); j++) {
+				if (clientes.at(i)->getContas().at(j)->getTitular2() != nullptr)
+					clientes.at(i)->getContas().at(j)->getTitular2()->adicionaConta(clientes.at(i)->getContas().at(j));
+				else
+					contas.push_back(clientes.at(i)->getContas().at(j));
+			}
+
+		} else {
+
+			for (size_t j = 0; j < clientes.at(i)->getContas().size(); j++) {
+				if (clientes.at(i)->getContas().at(j)->getTitular2()->getNome() == nomeCli)
+					clientes.at(i)->getContas().at(j)->setTitular2(nullptr);
+			}
+		}
+
+
+	}
+
+	clientes.erase(clientes.begin() + index);
+	return contas;
+
+}
+
 bool Agencia::operator <(const Agencia& a1) {
 
 	float soma1 = 0, soma2 = 0;
@@ -217,8 +251,6 @@ void Agencia::adicionaGerente(string nomeGer) {
 	gerentes.push_back(g1);
 
 }
-
-
 
 
 //Gerente
